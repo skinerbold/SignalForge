@@ -1,0 +1,22 @@
+[global]
+
+# Configurações gerais - removido dataFrameSerialization
+
+[server]
+# Configurações do servidor
+headless = false
+runOnSave = true
+port = 8501
+
+[browser]
+# Configurações do navegador
+gatherUsageStats = false
+serverAddress = "localhost"
+
+[theme]
+# Tema personalizado
+primaryColor = "#667eea"
+backgroundColor = "#ffffff"
+secondaryBackgroundColor = "#f0f2f6"
+textColor = "#262730"
+font = "sans serif"
