@@ -182,8 +182,8 @@ Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para de
 ## 👨‍💻 Autor
 
 **Produzido por Skiner Bold**
-- GitHub: [@skiner-bold](https://github.com/skiner-bold)
-- Email: [contato@skinerbold.com](mailto:contato@skinerbold.com)
+- GitHub: [@skinerbold](https://github.com/skinerbold)
+- Email: [skinerbold@gmail.com](skinerbold@gmail.com)
 
 ## 🙏 Agradecimentos
 
