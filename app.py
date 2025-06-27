@@ -93,37 +93,42 @@ def main():
             <h1>⚡ SignalForge - Forjando Análises de Sinais e Sistemas</h1>
             <p>Transformando complexidade em clareza, um sinal de cada vez.</p>
             <p>Análise Computacional Avançada com Python | Produzido por Skiner Bold</p>
-    </div>
-    """, unsafe_allow_html=True)
-    
-    # Sidebar para navegação
-    st.sidebar.title("🧭 Navegação")
-    st.sidebar.markdown("---")
-    
-    opcao = st.sidebar.selectbox(
-        "Escolha a análise:",
-        [
-            "🏠 Início",
-            "⏰ Domínio do Tempo",
-            "📈 Domínio da Frequência", 
-            "🎯 Análise de Sistemas",
-            "📊 Visualizações Avançadas",
-            "🔧 Ferramentas Auxiliares"
-        ]
-    )
-    
-    if opcao == "🏠 Início":
-        pagina_inicio()
-    elif opcao == "⏰ Domínio do Tempo":
-        analise_tempo()
-    elif opcao == "📈 Domínio da Frequência":
-        analise_frequencia()
-    elif opcao == "🎯 Análise de Sistemas":
-        analise_sistemas()
-    elif opcao == "📊 Visualizações Avançadas":
-        visualizacoes_avancadas()
-    elif opcao == "🔧 Ferramentas Auxiliares":
-        ferramentas_auxiliares()
+        </div>
+        """, unsafe_allow_html=True)
+        
+        # Sidebar para navegação
+        st.sidebar.title("🧭 Navegação")
+        st.sidebar.markdown("---")
+        
+        opcao = st.sidebar.selectbox(
+            "Escolha a análise:",
+            [
+                "🏠 Início",
+                "⏰ Domínio do Tempo",
+                "📈 Domínio da Frequência", 
+                "🎯 Análise de Sistemas",
+                "📊 Visualizações Avançadas",
+                "🔧 Ferramentas Auxiliares"
+            ]
+        )
+        
+        if opcao == "🏠 Início":
+            pagina_inicio()
+        elif opcao == "⏰ Domínio do Tempo":
+            analise_tempo()
+        elif opcao == "📈 Domínio da Frequência":
+            analise_frequencia()
+        elif opcao == "🎯 Análise de Sistemas":
+            analise_sistemas()
+        elif opcao == "📊 Visualizações Avançadas":
+            visualizacoes_avancadas()
+        elif opcao == "🔧 Ferramentas Auxiliares":
+            ferramentas_auxiliares()
+            
+    except Exception as e:
+        st.error("🚨 Erro na aplicação:")
+        st.error(f"```{str(e)}```")
+        st.info("💡 Recarregue a página ou contate o suporte técnico.")
 
 def pagina_inicio():
     st.markdown("""
@@ -1157,11 +1162,6 @@ def exportar_resultados():
     
     if st.button("📥 Exportar", type="primary"):
         st.success("🚧 Funcionalidade de exportação em desenvolvimento!")
-
-    except Exception as e:
-        st.error("🚨 Erro na aplicação:")
-        st.error(f"```{str(e)}```")
-        st.info("💡 Recarregue a página ou contate o suporte técnico.")
 
 # Executar aplicação
 if __name__ == "__main__":
