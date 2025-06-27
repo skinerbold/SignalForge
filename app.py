@@ -3,13 +3,25 @@ import numpy as np
 import matplotlib.pyplot as plt
 import sympy as sp
 import scipy.signal
-import control
-from sympy.physics.control.lti import TransferFunction
-from sympy.physics.control.control_plots import bode_plot, pole_zero_plot
 import plotly.graph_objects as go
 import plotly.express as px
 from plotly.subplots import make_subplots
 import pandas as pd
+
+# Imports condicionais para evitar erros no Streamlit Cloud
+try:
+    import control
+    CONTROL_AVAILABLE = True
+except ImportError:
+    CONTROL_AVAILABLE = False
+    st.warning("⚠️ Biblioteca 'control' não disponível. Algumas funcionalidades podem estar limitadas.")
+
+try:
+    from sympy.physics.control.lti import TransferFunction
+    from sympy.physics.control.control_plots import bode_plot, pole_zero_plot
+    SYMPY_CONTROL_AVAILABLE = True
+except ImportError:
+    SYMPY_CONTROL_AVAILABLE = False
 
 # Configuração da página
 st.set_page_config(
@@ -70,12 +82,17 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 def main():
-    # Cabeçalho principal
-    st.markdown("""
-    <div class="main-header">
-        <h1>⚡ SignalForge - Forjando Análises de Sinais e Sistemas</h1>
-        <p>Transformando complexidade em clareza, um sinal de cada vez.</p>
-        <p>Análise Computacional Avançada com Python | Produzido por Skiner Bold</p>
+    try:
+        # Teste básico do Streamlit
+        st.title("⚡ SignalForge")
+        st.success("✅ Aplicação carregada com sucesso!")
+        
+        # Cabeçalho principal
+        st.markdown("""
+        <div class="main-header">
+            <h1>⚡ SignalForge - Forjando Análises de Sinais e Sistemas</h1>
+            <p>Transformando complexidade em clareza, um sinal de cada vez.</p>
+            <p>Análise Computacional Avançada com Python | Produzido por Skiner Bold</p>
     </div>
     """, unsafe_allow_html=True)
     
@@ -1140,6 +1157,11 @@ def exportar_resultados():
     
     if st.button("📥 Exportar", type="primary"):
         st.success("🚧 Funcionalidade de exportação em desenvolvimento!")
+
+    except Exception as e:
+        st.error("🚨 Erro na aplicação:")
+        st.error(f"```{str(e)}```")
+        st.info("💡 Recarregue a página ou contate o suporte técnico.")
 
 # Executar aplicação
 if __name__ == "__main__":

@@ -1,11 +1,11 @@
 [global]
-
-# Configurações gerais - removido dataFrameSerialization
+developmentMode = false
 
 [server]
-# Configurações do servidor
-headless = false
-runOnSave = true
+headless = true
+enableCORS = false
+enableXsrfProtection = false
+maxUploadSize = 200
 port = 8501
 
 [browser]
